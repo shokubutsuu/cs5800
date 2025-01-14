@@ -1,0 +1,94 @@
+\documentclass[12pt]{article} 
+
+\usepackage[top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{color,graphicx}
+
+\begin{document}  
+\pagestyle{empty}
+ 
+
+
+
+
+\vskip 0.5in
+
+
+\begin{enumerate}
+
+\item 
+Suppose that $f(n) = \Theta(g(n))$. Assume that both functions increase without limit.
+
+(a) Must it be true that $\log f(n) = \Theta(\log g(n))$? Prove or disprove.
+
+(b)  Must it be  true that $2^{f(n)} = \Theta(2^{g(n)})$? Prove or disprove.\\
+
+
+{\color{blue}{\bf Answer:\\}}
+
+(a) 
+
+Since $f(n) = \Theta(g(n))$, there exists constant $c_1$, $c_2$ and $n_0$ such that 
+
+ $c_1\cdot g(n) \le f(n) \le c_2\cdot g(n),  \forall n \geq n_0$,
+
+ then $log(c_1\cdot g(n)) \le log(f(n)) \le log(c_2\cdot g(n))$,
+
+ $log(c_1) + log(g(n)) \le log(f(n)) \le log(c_2) + log(g(n))$,
+
+ since $log(c_1)$ and $log(c_2)$ are constants,
+ 
+$\log f(n) = \Theta(\log g(n))$.\\
+
+
+(b) 
+
+
+
+
+
+\newpage
+
+\item
+(a) Suppose you have a function of two variables, $n$ and $k$; for instance $h(n,k)$. \\ If you are told  that $h(n,k) = O(n+k)$, what should that mean mathematically? 
+
+(b) 
+ Let $f(n) = O(n)$ and $g(n) = O(n)$.  Let $c$ be a positive constant. \\   
+Prove or disprove that  $f(n) + c\cdot g(k) = O(n+k)$. \\
+
+
+{\color{blue}{\bf Answer:\\}}
+
+
+(a) \\
+
+(b) 
+
+
+
+
+
+
+\newpage
+
+
+
+\item  
+Let $f(n) = \sum^n_{y{=}1} (n^6\cdot y^{23})$. 
+
+Find a simple $g(n)$ such that $f(n) = \Theta(g(n))$, by proving that 
+$f(n)=O(g(n))$, and that $f(n) = \Omega(g(n))$.
+
+Don't use induction / substitution, or calculus, or any fancy formulas.  \\
+Just exaggerate and simplify for big-O, then underestimate and simplify for $\Omega$.\\
+
+
+{\color{blue}{\bf Answer:\\}}
+
+
+\end{enumerate} 
+
+
+
+
+\end{document}
+
