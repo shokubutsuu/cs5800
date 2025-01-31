@@ -2,6 +2,7 @@
 
 \usepackage[top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm]{geometry}
 \usepackage{color,graphicx}
+\usepackage{amssymb}
 
 \begin{document}  
 \pagestyle{empty}
@@ -35,15 +36,22 @@ Since $f(n) = \Theta(g(n))$, there exists constant $c_1$, $c_2$ and $n_0$ such t
 
  $log(c_1) + log(g(n)) \le log(f(n)) \le log(c_2) + log(g(n))$,
 
- since $log(c_1)$ and $log(c_2)$ are constants,
+ since $log(c_1)$ and $log(c_2)$ are constants,  
  
 $\log f(n) = \Theta(\log g(n))$.\\
 
 
 (b) 
 
+as $f(n)$ and $g(n)$ goes larger, the value of $2^{f(n)}$ and $2^{g(n)}$ has significant different exponentials. 
 
+As the exponential goes too big or too small, it goes against the defination of big Theta, where there's
 
+$c_1\cdot g(n) \le f(n) \le c_2\cdot g(n),  \forall n \geq n_0$,
+
+as the constant $c_1$ and $c_2$ will hardly make a difference in the exponential function.
+
+Thus, this is not always true.
 
 
 \newpage
@@ -58,10 +66,40 @@ Prove or disprove that  $f(n) + c\cdot g(k) = O(n+k)$. \\
 
 {\color{blue}{\bf Answer:\\}}
 
+(a)
 
-(a) \\
+Having $h(n,k) = O(n+k)$ means that function $h(n,k)$ grows depends on variables n and k, and there should exists constant c such that:
+
+$c \cdot (n+k) \geq h(n,k) ,  \forall n \geq n_0, \forall k \geq k_0$.
+\\
 
 (b) 
+
+$\because g(n) = O(n),$
+
+$\therefore g(k) = O(k)$
+
+$\because f(n) = O(n),$
+
+$\therefore$ there exists constant $c_1$ and $c_2$, $n_0$, $k_0$ such that:
+
+$c_1\cdot n \geq f(n), c_2\cdot k \geq g(k), \forall n \geq n_0, \forall k \geq k_0$
+
+$\therefore c_1 \cdot n + c_2 \cdot k \geq f(n) + g(k)$
+
+make $h(n,k) = f(n) + g(k)$,
+
+$\therefore c_1 \cdot n + c_2 \cdot k \geq h(n,k)$.
+
+when $c_1 \leq c_2$,
+
+$ c_2 \cdot n + c_2 \cdot k \geq h(n,k)$.
+
+$\therefore c_2 \cdot(n+k) \geq h(n,k)$, which fits the defination we defined previously.
+
+same logic applies when $c_1 \geq c_2$.
+
+$\therefore f(n) + c\cdot g(k) = O(n+k)$ is always true.
 
 
 
@@ -83,6 +121,31 @@ Just exaggerate and simplify for big-O, then underestimate and simplify for $\Om
 
 
 {\color{blue}{\bf Answer:\\}}
+
+$f(n) = \sum^n_{y{=}1} (n^6\cdot y^{23}) \leq n \cdot (n^6 \cdot n^{23})$
+$f(n) \leq  n^{30}$
+
+$\therefore$ there exists constants c, $n_0$ such that,
+
+$ c \cdot n^{30} \geq f(n), \forall n \geq n_0$.
+
+$\therefore f(n) = O(n^{30})$.
+
+$f(n) = \sum^n_{y{=}1} (n^6\cdot y^{23}) \geq \sum^n_{y{=}{n/2}}n^6\cdot y^{23}$
+
+$f(n)\geq \sum^n_{y=n/2}n^6 \cdot (\frac{n}{2})^{23}$
+
+$f(n)\geq (\frac{n}{2})\cdot n^6 \cdot (\frac{n}{2})^{23}$
+
+$=(\frac{1}{2})^{24}\cdot n^6 \cdot n^{24}$
+
+$\therefore$ there exists constants c, $n_0$ such that,
+
+$ c \cdot n^{30} \leq f(n), \forall n \geq n_0$.
+
+$\therefore f(n) = \Omega(n^{30})$.
+
+$\therefore f(n) = \Theta(n^{30})$.
 
 
 \end{enumerate} 
